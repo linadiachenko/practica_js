@@ -4,61 +4,135 @@ document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.getElementById('hamburger');
     const contactBlock = document.getElementById('contactBlock');
     const closeContact = document.getElementById('closeContact');
-    const navLinks = document.querySelector('.nav-links'); // For potential future mobile nav
+    const contactInfo = document.getElementById('contactInfo');
+    const mobileMenu = document.getElementById('mobileMenu');
+    let isContactOpen = false;
 
-    // Toggle search input visibility
-    searchIcon.addEventListener('click', () => {
-        searchInput.classList.toggle('active');
-        if (searchInput.classList.contains('active')) {
-            searchInput.focus(); // Focus on the input when it appears
-        } else {
-            searchInput.value = ''; // Clear input when hidden
-        }
-    });
+    // --- reload page ---//
+    document.querySelectorAll('.logo, .footer-logo').forEach(function(el) {
+        el.addEventListener('click', function() {
+          location.reload();
+        });
+      });
+    // --- Hamburger ---
+    if (hamburger && contactBlock && contactInfo && mobileMenu) {
+        hamburger.addEventListener('click', () => {
+            isContactOpen = !isContactOpen;
+            contactBlock.classList.toggle('active', isContactOpen);
 
+            if (window.innerWidth <= 630) {
+                if (isContactOpen) {
+                    contactInfo.style.display = 'none';
+                    mobileMenu.style.display = 'flex';
+                    mobileMenu.style.flexDirection = 'column';
+                    mobileMenu.style.gap = '10px';
+                } else {
+                    contactInfo.style.display = 'block';
+                    mobileMenu.style.display = 'none';
+                }
+            } else {
+                // On desktop, always show contactInfo and hide mobileMenu
+                contactInfo.style.display = 'block';
+                mobileMenu.style.display = 'none';
+            }
 
-    // Close search input if clicked outside (optional, but good UX)
-    document.addEventListener('click', (event) => {
-        if (!searchIcon.contains(event.target) && !searchInput.contains(event.target)) {
+            // close all dropdowns
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                menu.style.maxHeight = null;
+            });
+        });
+
+        // Handle window resize to update menu visibility
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 630) {
+                contactInfo.style.display = 'block';
+                mobileMenu.style.display = 'none';
+                contactBlock.classList.remove('active');
+                isContactOpen = false;
+            } else if (isContactOpen) {
+                contactInfo.style.display = 'none';
+                mobileMenu.style.display = 'flex';
+                mobileMenu.style.flexDirection = 'column';
+                mobileMenu.style.gap = '10px';
+            } else {
+                contactInfo.style.display = 'block';
+                mobileMenu.style.display = 'none';
+            }
+        });
+    }
+
+    // --- close contact block ---//
+    if (closeContact && contactBlock && contactInfo && mobileMenu) {
+        closeContact.addEventListener('click', () => {
+            contactBlock.classList.remove('active');
+            isContactOpen = false;
+            contactInfo.style.display = 'block';
+            mobileMenu.style.display = 'none';
+
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                menu.style.maxHeight = null;
+            });
+        });
+    }
+
+    // --- search icon ---
+    if (searchIcon && searchInput) {
+        searchIcon.addEventListener('click', () => {
+            searchInput.classList.toggle('active');
+            searchInput.classList.contains('active') ? searchInput.focus() : searchInput.value = '';
+        });
+    }
+
+    document.addEventListener('click', (e) => {
+        if (!searchIcon.contains(e.target) && !searchInput.contains(e.target)) {
             searchInput.classList.remove('active');
             searchInput.value = '';
         }
-    });
 
-    // Toggle contact block visibility
-    hamburger.addEventListener('click', () => {
-        contactBlock.classList.add('active');
-    });
-
-    closeContact.addEventListener('click', () => {
-        contactBlock.classList.remove('active');
-    });
-
-    // Close contact block if clicked outside (optional, but good UX)
-    document.addEventListener('click', (event) => {
-        if (!hamburger.contains(event.target) && !contactBlock.contains(event.target) && contactBlock.classList.contains('active')) {
+        if (!hamburger.contains(e.target) && !contactBlock.contains(e.target) && isContactOpen) {
             contactBlock.classList.remove('active');
+            isContactOpen = false;
+            contactInfo.style.display = 'block';
+            mobileMenu.style.display = 'none';
         }
     });
 
-    //  Close dropdown menu when clicking outside
-    const dropdowns = document.querySelectorAll('.dropdown');
-    dropdowns.forEach(dropdown => {
-        dropdown.addEventListener('mouseleave', () => {
-            const dropdownMenu = dropdown.querySelector('.dropdown-menu');
-            if (dropdownMenu) {
-                dropdownMenu.style.display = 'none';
-            }
-        });
-        dropdown.addEventListener('mouseenter', () => {
-            const dropdownMenu = dropdown.querySelector('.dropdown-menu');
-            if (dropdownMenu) {
-                dropdownMenu.style.display = 'block';
+    // --- Dropdowns: mobile logic ---
+    document.querySelectorAll('.toggle-dropdown').forEach(toggle => {
+        toggle.addEventListener('click', e => {
+            e.preventDefault();
+
+            const dropdownMenu = toggle.nextElementSibling;
+
+            // close all other dropdowns
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                if (menu !== dropdownMenu) menu.style.maxHeight = null;
+            });
+
+            // animate the clicked dropdown
+            if (dropdownMenu.style.maxHeight) {
+                dropdownMenu.style.maxHeight = null;
+            } else {
+                dropdownMenu.style.maxHeight = dropdownMenu.scrollHeight + "px";
             }
         });
     });
-});
 
+    // --- Dropdowns: desktop logic ---
+    if (window.innerWidth > 630) {
+        const dropdowns = document.querySelectorAll('.dropdown');
+        dropdowns.forEach(dropdown => {
+            dropdown.addEventListener('mouseenter', () => {
+                const menu = dropdown.querySelector('.dropdown-menu');
+                menu.style.display = 'block';
+            });
+            dropdown.addEventListener('mouseleave', () => {
+                const menu = dropdown.querySelector('.dropdown-menu');
+                menu.style.display = 'none';
+            });
+        });
+    }
+});
  // --- New JavaScript for Testimonial Slider (Basic) ---
  const testimonialDots = document.querySelectorAll('.testimonial-pagination .dot');
  const testimonialText = document.querySelector('.testimonial-text p');
@@ -158,12 +232,3 @@ document.addEventListener('DOMContentLoaded', () => {
        playPauseButton.classList.add('fa-play');
        videoPoster.style.display = 'block';
    });
-   
-
-    // --- JavaScript for Scroll to Top Button ---
-hamburger.addEventListener('click', () => {
-    contactBlock.classList.add('active');
-
-    // Also toggle nav menu on small screens
-    document.querySelector('nav').classList.toggle('nav-open');
-});
