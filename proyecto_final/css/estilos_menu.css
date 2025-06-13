@@ -1,36 +1,376 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu</title>
+/* --- Variables (as provided) --- */
+:root {
+  --primary-color: #e7720c;
+  /* Example orange/brown for primary actions */
+  --dark-primary-color: #a5612a;
+  /* Slightly darker primary color for hover */
+  --dark-text: #333333;
+  /* Dark gray for main text */
+  --light-text: #666666;
+  /* Lighter gray for secondary text */
+  --background-light: #F8F8F8;
+  /* Light background for sections */
+  --border-color: #e0e0e0;
+  --header-bg: #fff;
+}
 
-  <link rel="stylesheet" href="css/estilos_menu.css">
-  <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+/* --- General & Reused Styles (as provided) --- */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* Good to have this globally */
+  line-height: 1.6;
+  color: var(--light-text);
+}
 
-</head>
-<body>
-    <header>
-        <?php   
-            include 'include/header.html';
-        ?>
-      </header>
-  
- 
-  <main>
-   
+main {
+  padding: 0px;
+  background-color: var(--background-light);
+}
 
-    
- 
-  </main> 
+header {
+  box-shadow: none;
+}
 
-  <footer>
-    <?php   
-        include 'include/footer.html';
-    ?>
-</footer>
+/* --- About Hero Title Section (as provided) --- */
+.about-hero-title {
+  width: 100%;
+  background-color: var(--header-bg);
+  padding: 30px 20px;
+  text-align: center;
+  margin-bottom: 60px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 8px 10px -6px rgba(0, 0, 0, 0.08);
+}
 
-</body>
-</html>
+.about-hero-title h1 {
+  font-size: 3rem;
+  color: var(--dark-text);
+  margin-bottom: 15px;
+}
+
+.breadcrumb {
+  font-size: 0.9rem;
+  color: var(--light-text);
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: var(--light-text);
+  transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+  color: var(--primary-color);
+}
+
+.breadcrumb i {
+  margin: 0 8px;
+  color: var(--light-text);
+  font-size: 0.7rem;
+}
+
+.breadcrumb span {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+/* --- Meal Types Section Styling (Breakfast, Lunch, Dinner - as provided) --- */
+.meal-types-section {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+.menu-list-container {
+  gap: 100px;}
+
+.meal-types-section .container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-content: center;
+}
+
+.meal-card {
+  background-color: var(--header-bg);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  padding-bottom: 25px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.meal-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.meal-image-wrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.meal-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease-in-out;
+}
+
+.meal-card:hover .meal-image-wrapper img {
+  transform: scale(1.05);
+}
+
+.meal-card h3 {
+  font-size: 1.5rem;
+  color: var(--dark-text);
+  margin-bottom: 10px;
+}
+
+.meal-card p {
+  font-size: 0.95rem;
+  color: var(--light-text);
+  line-height: 1.5;
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
+
+/* --- Specific Styles for the "Menu Gallery and List" Section (mostly desktop) --- */
+.menu-gallery-and-list-section {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 20px;
+  background-color: var(--header-bg);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.menu-content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  padding: 30px;
+}
+
+.bread-gallery {
+  flex: 1;
+  min-width: 350px;
+  max-width: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  position: relative;
+  cursor: pointer;
+}
+
+.bread-gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+}
+
+.bread-gallery:hover img {
+  transform: scale(1.08) rotate(1deg);
+  filter: brightness(0.95) saturate(1.1);
+}
+
+.bread-gallery::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.2) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.bread-gallery:hover::before {
+  opacity: 1;
+}
+
+.menu-items-list {
+  flex: 1.2;
+  min-width: 300px;
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.menu-item-short {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 10px;
+  border-bottom: 1px dotted var(--border-color);
+  padding: 10px 0;
+  transition: background-color 0.3s ease;
+}
+
+.menu-item-short:hover {
+  background-color: var(--background-light);
+}
+
+.item-details-short h3 {
+  font-size: 1.15rem;
+  color: var(--dark-text);
+  margin: 0 0 5px 0;
+}
+
+.item-details-short p {
+  font-size: 0.85rem;
+  color: var(--light-text);
+  line-height: 1.3;
+  margin: 0;
+}
+
+.item-price-short {
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  flex-shrink: 0;
+  margin-left: 15px;
+  transition: color 0.3s ease;
+}
+
+.menu-item-short:hover .item-price-short {
+  color: var(--dark-primary-color);
+}
+
+.meal-types-section .order-now-button {
+  padding: 10px 20px;
+  border: 1px solid var(--primary-color);
+  background-color: transparent;
+  color: var(--primary-color);
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.meal-types-section .order-now-button:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+  border-color: var(--primary-color);
+}
+
+/* --- Responsive Design for "Menu Gallery and List" Section --- */
+@media (max-width: 768px) {
+  .menu-content-wrapper {
+    flex-direction: column;
+    /* Stack image and menu list vertically */
+    gap: 30px;
+    /* Adjust gap when stacked */
+    padding: 20px;
+    /* Reduce internal padding */
+  }
+
+  .bread-gallery,
+  .menu-items-list {
+    min-width: unset;
+    /* Remove min-width to allow full width */
+    max-width: 100%;
+    /* Take full available width */
+  }
+
+  .bread-gallery img {
+    height: 250px;
+    /* Fixed height for image on medium screens */
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 430px) {
+  .menu-gallery-and-list-section {
+    margin: 40px auto;
+    /* Adjust overall section margin for mobile */
+    padding: 0 15px;
+    /* Adjust horizontal padding for section */
+    box-shadow: none;
+    /* Remove subtle shadow on very small screens for cleaner look */
+    border-radius: 0;
+    /* Remove border-radius */
+  }
+
+  .menu-content-wrapper {
+    flex-direction: column;
+    /* Ensure stacking on very small screens too */
+    padding: 0;
+    /* Remove internal padding on wrapper, let section padding handle it */
+    gap: 20px;
+    /* Reduce gap between stacked elements */
+  }
+
+  .bread-gallery {
+    border-radius: 4px;
+    /* Slightly smaller border-radius for image */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    /* Lighter shadow */
+    min-width: unset;
+    /* Ensure it can shrink */
+    max-width: 100%;
+    /* Take full width */
+  }
+
+  .bread-gallery img {
+    height: 200px;
+    /* Smaller fixed height for image on mobile */
+  }
+
+  .bread-gallery:hover img {
+    transform: scale(1.05);
+    /* Keep a slightly smaller zoom for mobile */
+    filter: brightness(1) saturate(1);
+    /* Less aggressive filter change for mobile */
+  }
+
+  .bread-gallery::before {
+    content: 'TAP TO VIEW';
+    /* Change overlay text for mobile */
+    font-size: 1.2em;
+  }
+
+  .menu-items-list {
+    min-width: unset;
+    /* Ensure it can shrink */
+    max-width: 100%;
+    /* Take full width */
+    gap: 15px;
+    /* Smaller gap between menu items */
+  }
+
+  .menu-item-short {
+    padding: 8px 0;
+    /* Smaller padding for menu items */
+  }
+
+  .item-details-short h3 {
+    font-size: 1em;
+    /* Smaller font for item title */
+  }
+
+  .item-details-short p {
+    font-size: 0.8em;
+    /* Smaller font for item description */
+  }
+
+  .item-price-short {
+    font-size: 1.05rem;
+    /* Slightly smaller price font */
+    margin-left: 10px;
+  }
+}

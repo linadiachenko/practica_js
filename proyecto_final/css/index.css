@@ -34,7 +34,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 2px 4px var(--shadow-light);
+  box-shadow: 0 2px 4px -2px (--shadow-light);
   /* Added subtle shadow to header */
   position: relative;
   /* Needed for positioning contact-block */
@@ -79,12 +79,14 @@ nav {
   list-style: none;
   display: flex;
   gap: 25px;
+  height: 100%;
   /* Increased gap for better spacing */
   margin-right: auto;
   /* Push nav-links to the left (or search-and-hamburger to the right) */
 }
 
 .nav-links li a {
+  height: 50px;
   text-decoration: none;
   color: var(--text-color);
   font-weight: 500;
@@ -130,7 +132,7 @@ nav {
   list-style: none;
   min-width: 180px;
   /* Minimum width for dropdown */
-  top: calc(100% + 5px);
+  top: calc(100% + 3px);
   /* Position slightly below "Pages" link */
   left: 0;
   /* Align to the left of "Pages" link */
@@ -252,7 +254,7 @@ nav {
   padding: 40px 20px;
   box-sizing: border-box;
   transition: right 0.3s ease-in-out;
-  z-index: 200;
+  z-index: 9999;
   /* Above header */
   display: flex;
   flex-direction: column;
@@ -261,6 +263,7 @@ nav {
 
 .contact-block.active {
   right: 0;
+  display: block;
   /* Visible when active */
 }
 
@@ -314,9 +317,9 @@ nav {
 main {
   padding-top: 50px;
   display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   /* Adjust based on header height */
   background-color: var(--light-gray);
 }
@@ -1328,7 +1331,7 @@ main {
 /* --- Stats Section --- */
 .stats-section {
   width: 100%;
-  margin: 80px auto 100px auto;
+  margin: 40px auto 100px auto;
   padding: 40px 20px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -1540,7 +1543,8 @@ footer {
 
 .footer-news .news-date {
   display: block;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
+  align-items: flex-start;
   color: rgba(255, 255, 255, 0.5);
   margin-bottom: 5px;
 }

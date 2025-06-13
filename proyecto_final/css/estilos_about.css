@@ -1,35 +1,844 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Musium</title>
+/* --- Variables (If you have them globally, ensure they are also available or define them here) --- */
+:root {
+  --primary-color: #e7720c;
+  /* Example orange/brown for primary actions */
+  --dark-primary-color: #a5612a;
+  /* Slightly darker primary color for hover */
+  --dark-text: #333333;
+  /* Dark gray for main text */
+  --light-text: #666666;
+  /* Lighter gray for secondary text */
+  --background-light: #F8F8F8;
+  /* Light background for sections */
+  --border-color: #e0e0e0;
+  --header-bg: #fff;
+}
 
-  <link rel="stylesheet" href="css/estilos_practica_8R.css">
-  <link rel="stylesheet" href="css/estilos_shop.css">
-  <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+/* --- General & Reused Styles --- */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1.6;
+  color: var(--light-text);
+}
+main {
+  padding: 0px 50px 0px 0px;
+  background-color: var(--background-light);
+}
 
-</head>
-<body>
-    <header>
-        <?php   
-            include 'include/header.html';
-        ?>
-      </header>
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-tag-small {
+  font-size: 0.9rem;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  font-weight: bold;
+  display: block;
+}
+
+h2 {
+  font-size: 2.8rem;
+  line-height: 1.2;
+  color: var(--dark-text);
+  margin-bottom: 30px;
+}
+
+.discover-more-button {
+  padding: 12px 25px;
+  border: 2px solid var(--primary-color);
+  background-color: transparent;
+  color: var(--primary-color);
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.discover-more-button:hover {
+  background-color: var(--primary-color);
+  color: var(--header-bg);
+}
+header {
+  box-shadow: none;
+}
+
+/* --- About Hero Title Section --- */
+.about-hero-title {
+  width: 100%;
+  background-color: var(--header-bg);
+  padding: 30px 20px;
+  text-align: center;
+  margin-bottom: 60px;
   
- 
-      <main>
-       
-      
-      </main>  
+  position: sticky;
+  /* Закріплює елемент */
+  top: 0;
+  /* Закріплює його у верхній частині вікна перегляду */
+  z-index: 1;
+  /* Переконайтеся, що він знаходиться над іншими елементами при прокручуванні */
+  width: 100%;
+  /* Гарантує, що він займає всю ширину */
+  box-shadow: 0 8px 10px -6px rgba(0, 0, 0, 0.08);
+  /* Тінь тільки знизу */
+}
 
-  <footer>
-    <?php   
-        include 'include/footer.html';
-    ?>
-</footer>
+.about-hero-title h1 {
+  font-size: 3rem;
+  color: var(--dark-text);
+  margin-bottom: 15px;
+}
 
-</body>
-</html>
+.breadcrumb {
+  font-size: 0.9rem;
+  color: var(--light-text);
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: var(--light-text);
+  transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+  color: var(--primary-color);
+}
+
+.breadcrumb i {
+  margin: 0 8px;
+  color: var(--light-text);
+  font-size: 0.7rem;
+}
+
+.breadcrumb span {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+/* --- Our Story Section --- */
+.our-story-section {
+  max-width: 1200px;
+  margin: 0 auto 80px auto;
+  padding: 0 20px;
+}
+
+.our-story-section .container {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+  /* Allow wrapping */
+}
+
+.our-story-content {
+  flex: 1;
+  min-width: 300px;
+  max-width: 45%;
+  /* Adjusted to match image layout */
+  text-align: left;
+}
+
+.our-story-text {
+  flex: 1;
+  min-width: 300px;
+  max-width: 55%;
+  /* Adjusted to match image layout */
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.our-story-text p {
+  margin-bottom: 30px;
+  line-height: 1.7;
+  color: var(--light-text);
+}
+
+.our-story-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.our-story-images img {
+  width: 100%;
+  height: 300px;
+  /* Fixed height for consistency */
+  object-fit: cover;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.our-story-images img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* --- About Delibake Section --- */
+.about-delibake-section {
+  background-color: var(--background-light);
+  padding: 80px 0;
+  margin-bottom: 40px;
+}
+
+.about-delibake-section .container {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  flex-wrap: wrap;
+  /* Allow wrapping */
+}
+
+.about-delibake-image {
+  flex: 1;
+  min-width: 400px;
+  height: 400px;
+}
+
+.about-delibake-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.about-delibake-content {
+  flex: 1;
+  min-width: 400px;
+  text-align: left;
+  padding-right: 20px;
+  /* Add some space from the edge */
+}
+
+.about-delibake-content p {
+  margin-bottom: 20px;
+  line-height: 1.7;
+  color: var(--light-text);
+  
+}
+
+.about-delibake-content #quote {
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--dark-text);
+  margin-bottom: 30px;
+  position: relative;
+  padding-left: 20px;
+  border-left: 4px solid var(--primary-color);
+}
+
+.about-delibake-content .quote::before {
+  content: '"';
+  position: absolute;
+  left: 0;
+  top: -5px;
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
+
+/* --- Why Choose Us Section --- */
+.why-choose-us-section {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.why-choose-us-section h2 {
+  margin-bottom: 50px;
+}
+
+.reason-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+}
+
+.reason-item {
+  background-color: var(--header-bg);
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reason-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.reason-item i {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.reason-item h3 {
+  font-size: 1.4rem;
+  color: var(--dark-text);
+  margin-bottom: 10px;
+}
+
+.reason-item p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--light-text);
+}
+
+
+.section-tag {
+  font-size: 0.9em;
+  color: var(--primary-color);
+  /* Orange color seen in tags like "OUR STORY", "ABOUT DELIBAKE" */
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.section-description {
+  font-size: 1.1em;
+  margin-bottom: 30px;
+}
+
+/* Specific styles for the FAQ section */
+.faqs-section {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 80px 0;
+  display: flex;
+  flex-direction: row;
+  /* White background as seen, using header-bg as it's white */
+}
+
+.faqs-section .container {
+  flex: 1;
+  align-items: flex-start;
+  /* Align content to the top */
+}
+
+.faqs-content {
+  padding-right: 40px;
+  /* Spacing from the image */
+}
+
+.faqs-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  /* For potential image effects */
+  overflow: hidden;
+  /* Ensures image doesn't overflow container */
+}
+
+.faqs-image img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Slightly rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow */
+  transition: transform 0.3s ease-in-out;
+  /* Smooth transition for hover effect */
+}
+
+.faqs-image img:hover {
+  transform: scale(1.03);
+  /* Slight zoom effect on hover */
+}
+
+/* FAQ Item Styling */
+.faq-item {
+  background-color: var(--background-light);
+  /* Lighter background for inactive items */
+  border-radius: 8px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  /* Hide overflowing answer */
+  transition: background-color 0.3s ease-in-out;
+}
+
+.faq-item.active {
+  background-color: var(--primary-color);
+  /* Orange background for active item, as seen */
+  color: var(--header-bg);
+  /* White text for active item */
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px;
+  cursor: pointer;
+  font-weight: bold;
+  color: var(--dark-text);
+  /* Default text color for question */
+  transition: color 0.3s ease-in-out;
+}
+
+.faq-item.active .faq-question {
+  color: var(--header-bg);
+  /* White text for active question */
+}
+
+.faq-question h3 {
+  margin: 0;
+  font-size: 1.1em;
+  flex-grow: 1;
+  color: inherit;
+  /* Inherit color from parent (.faq-question or .faq-item.active) */
+}
+
+.arrow {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid var(--primary-color);
+  /* Down arrow for inactive */
+  transition: transform 0.3s ease-in-out, border-top-color 0.3s ease-in-out;
+  margin-left: 15px;
+}
+
+.faq-item.active .arrow {
+  border-top: 6px solid var(--header-bg);
+  /* White up arrow for active */
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  padding: 0 25px;
+  max-height: 0;
+  /* Initially hidden */
+  opacity: 0;
+  /* Initially hidden */
+  transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, padding 0.4s ease-in-out;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 200px;
+  /* Adjust as needed for content length */
+  padding-bottom: 20px;
+  opacity: 1;
+}
+
+.faq-item.active .faq-answer p {
+  color: var(--header-bg);
+  /* White text for active answer */
+}
+
+/* Hover effect for inactive FAQ items */
+.faq-item:not(.active):hover {
+  background-color: color-mix(in srgb, var(--primary-color) 20%, var(--background-light));
+  /* A lighter tint of primary color */
+}
+
+.faq-item:not(.active):hover .faq-question h3 {
+  color: var(--primary-color);
+  /* Orange text on hover */
+}
+
+.faq-item:not(.active):hover .arrow {
+  border-top-color: var(--primary-color);
+  /* Orange arrow on hover */
+}
+
+/* Specific styles for the Team section */
+.team-section {
+  margin: 80px opx 0px 0px;
+  width: 1200px;
+  height: auto;
+  text-align: center;
+}
+
+.team-section h2 {
+  margin-bottom: 50px;
+  /* Space below the main heading */
+  font-size: 2.5em;
+  /* Larger font for main section heading */
+}
+
+.team-members {
+  width: 100%;
+  margin: 0px 0px 100px auto;
+  padding: 0px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+}
+
+.member-card {
+  background-color: var(--header-bg);
+  /* White background for cards */
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  /* More prominent shadow */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  padding-bottom: 30px;
+  /* Space below content */
+}
+
+.member-card:hover {
+  transform: translateY(-10px);
+  /* Lift card on hover */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  /* Stronger shadow on hover */
+}
+
+.member-image {
+  width: 100%;
+  height: 250px;
+  /* Fixed height for consistent image size */
+  overflow: hidden;
+  /* Ensures image fits within the div */
+  margin-bottom: 20px;
+}
+
+.member-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Crops image to cover the area */
+  display: block;
+  transition: transform 0.4s ease-in-out;
+  /* Zoom effect for image on hover */
+}
+
+.member-card:hover .member-image img {
+  transform: scale(1.08);
+  /* Zoom in effect on image hover */
+}
+
+.member-card h3 {
+  font-size: 1.4em;
+  margin-top: 0;
+  margin-bottom: 5px;
+  color: var(--dark-text);
+}
+
+.member-role {
+  font-size: 0.9em;
+  color: var(--light-text);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.social-links {
+  margin-top: 15px;
+}
+
+.social-icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: var(--border-color);
+  /* Light border for social icons */
+  color: var(--light-text);
+  margin: 0 5px;
+  text-decoration: none;
+  font-size: 1em;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.social-icon:hover {
+  background-color: var(--primary-color);
+  /* Primary color on hover */
+  color: #fff;
+  /* White icon on hover */
+  transform: translateY(-3px);
+  /* Slight lift for social icons */
+}
+
+
+
+@media (max-width: 430px) {
+
+  /* --- General Adjustments for very small screens --- */
+  .container {
+    padding: 0 15px;
+    /* Tighter padding for very small screens */
+  }
+
+  h2 {
+    font-size: 2rem;
+    /* Reduce main heading size */
+    margin-bottom: 20px;
+  }
+
+  .section-tag-small {
+    margin-bottom: 10px;
+  }
+
+  .discover-more-button {
+    padding: 10px 20px;
+    /* Smaller button padding */
+    font-size: 0.9rem;
+  }
+
+  /* --- Header & Navigation --- */
+  .main-nav {
+    padding: 15px;
+  }
+
+  .main-nav .logo {
+    font-size: 1.5rem;
+  }
+
+  .our-story-section .container,
+  .about-delibake-section .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .our-story-content,
+  .our-story-text,
+  .about-delibake-image,
+  .about-delibake-content {
+    max-width: 100%;
+    min-width: unset;
+    text-align: center;
+    padding-right: 0;
+  }
+
+  .about-delibake-content .quote {
+    padding-left: 0;
+  }
+
+  .about-delibake-content .quote::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .our-story-section .container,
+  .about-delibake-section .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .our-story-content,
+  .our-story-text,
+  .about-delibake-image,
+  .about-delibake-content {
+    max-width: 100%;
+    min-width: unset;
+    text-align: center;
+    padding-right: 0;
+  }
+
+  .about-delibake-content .quote {
+    padding-left: 0;
+  }
+
+  .about-delibake-content .quote::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr; /* Stack footer columns on very small screens */
+    gap: 20px;
+  }
+
+/* Specific adjustments for 430px for "FAQ" Section */
+.faqs-section {
+  margin: 40px auto;
+  /* Adjust top/bottom margin */
+  padding: 40px 0;
+  /* Reduce section padding */
+  flex-direction: column;
+  /* Stack content and image vertically */
+  width: 100%;
+  /* Ensure full width */
+}
+
+.faqs-section .container {
+  flex-direction: column;
+  /* Ensure container also stacks vertically */
+  padding: 0 15px;
+  /* Add horizontal padding to the container */
+  gap: 30px;
+  /* Adjust gap between stacked content and image */
+}
+
+.faqs-content {
+  padding-right: 0;
+  /* Remove right padding as image is now below */
+  margin-bottom: 20px;
+  /* Add space below content before image */
+  text-align: center;
+  /* Center align text content */
+}
+
+.faqs-content .section-tag,
+.faqs-content h1 {
+  text-align: center;
+  /* Ensure tag and heading are centered */
+}
+
+.faqs-content h1 {
+  font-size: 2em;
+  /* Smaller heading for mobile */
+}
+
+.faqs-image {
+  order: -1;
+  /* Move the image above the content for better visual flow on mobile */
+  margin-bottom: 20px;
+  /* Space between image and content */
+}
+
+.faqs-image img {
+  height: 250px;
+  /* Adjust image height for mobile */
+  width: 100%;
+  /* Ensure image takes full width of its container */
+  object-fit: cover;
+  /* Maintain aspect ratio and cover area */
+}
+
+/* FAQ Item Styling adjustments for 430px */
+.faq-question {
+  padding: 15px 20px;
+  /* Smaller padding for FAQ questions */
+}
+
+.faq-question h3 {
+  font-size: 1em;
+  /* Smaller font size for question text */
+}
+
+.faq-answer {
+  padding: 0 20px;
+  /* Smaller padding for answers */
+}
+
+.faq-item.active .faq-answer {
+  padding-bottom: 15px;
+  /* Adjust padding for active answer */
+}
+
+   /* Specific adjustments for 430px for "Why Choose Us" Section */
+  .why-choose-us-section {
+    margin: 30px auto; /* Reduce vertical margin */
+    padding: 0 15px; /* Adjust horizontal padding */
+  }
+
+  .why-choose-us-section h2 {
+    font-size: 2em; /* Smaller heading for small screens */
+    margin-bottom: 30px; /* Adjust spacing */
+  }
+
+  .reason-grid {
+    grid-template-columns: 1fr; /* Stack items vertically on very small screens */
+    gap: 20px; /* Reduce gap between stacked items */
+  }
+
+  .reason-item {
+    padding: 25px; /* Slightly reduce padding */
+  }
+
+  .reason-item i {
+    font-size: 2rem; /* Slightly smaller icon size */
+    margin-bottom: 15px; /* Adjust icon spacing */
+  }
+
+  .reason-item h3 {
+    font-size: 1.2rem; /* Slightly smaller heading for reason item */
+  }
+
+  .reason-item p {
+    font-size: 0.9rem; /* Slightly smaller paragraph text */
+  }
+
+  /* Team section specific adjustments for 430px */
+  .our-story-section .container,
+  .about-delibake-section .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .our-story-content,
+  .our-story-text,
+  .about-delibake-image,
+  .about-delibake-content {
+    max-width: 100%;
+    min-width: unset;
+    text-align: center;
+    padding-right: 0;
+  }
+
+  .about-delibake-content .quote {
+    padding-left: 0;
+  }
+
+  .about-delibake-content .quote::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr; /* Stack footer columns on very small screens */
+    gap: 20px;
+  }
+
+  /* Team section specific adjustments for 430px */
+  .team-section {
+    margin: 40px auto; /* Adjust margin for smaller screens, center horizontally */
+    width: 100%; /* Make it full width */
+    padding: 0 15px; /* Add some horizontal padding */
+  }
+
+  .team-section h2 {
+    font-size: 2em; /* Slightly smaller heading for small screens */
+    margin-bottom: 30px; /* Adjust spacing */
+  }
+
+  .team-members {
+    grid-template-columns: 1fr; /* Stack members vertically on very small screens */
+    margin: 0px 0px 50px auto; /* Adjust margin */
+    padding: 0; /* Remove padding here as it's on .team-section */
+    gap: 20px; /* Reduce gap between stacked cards */
+  }
+
+  .member-card {
+    padding-bottom: 20px; /* Adjust padding */
+  }
+
+  .member-image {
+    height: 200px; /* Smaller image height for compact view */
+  }
+
+  .member-card h3 {
+    font-size: 1.2em; /* Slightly smaller name */
+  }
+
+  .member-role {
+    font-size: 0.8em; /* Slightly smaller role text */
+  }
+
+  .social-icon {
+    width: 30px; /* Smaller social icons */
+    height: 30px;
+    font-size: 0.9em;
+  }
+
+}
