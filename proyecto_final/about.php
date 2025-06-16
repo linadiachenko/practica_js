@@ -22,106 +22,9 @@
 </head>
 <body>
   <header id="header">
-    <!-- <?php   
-            include 'include/header.html';
-        ?>  -->
-  <div class="logo">
-    <div>DELIBAKE</div>
-    <div class="logo-subtitle">Bakery and Pastry</div>
-  </div>
-  <nav>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="index_about.html">About</a></li>
-      <li><a href="index_menu.html">Menu</a></li>
-      <li class="dropdown">
-        <a href="#">Pages <i class="fas fa-caret-down"></i></a>
-        <ul class="dropdown-menu">
-          <li><a href="index_kitchen.html">Kitchen</a></li>
-          <li><a href="index_review.html">Reviews</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="index_team.html">Team</a></li>
-          <li><a href="index_faqs.html">FAQs</a></li>
-          <li><a href="index_blog.html">Blog</a></li>
-          <li><a href="#">Single Post</a></li>
-          <li><a href="#">404 Page</a></li>
-        </ul>
-      </li>
-      <li><a href="#">Contact</a></li>
-    </ul>
-    <div class="search-and-hamburger">
-      <div class="search-container">
-        <input type="text" id="searchInput" class="search-input" placeholder="Search...">
-        <i class="fas fa-search search-icon" id="searchIcon"></i>
-      </div>
-      <div class="hamburger" id="hamburger">
-        <i class="fas fa-bars"></i>
-      </div>
-    </div>
-  </nav>
-
-  <div class="contact-block" id="contactBlock">
-    <i class="fas fa-times close-contact" id="closeContact"></i>
-    <div class="logo">
-      <div>DELIBAKE</div>
-      <div class="logo-subtitle">Bakery and Pastry</div>
-    </div>
-  
-    <!-- Contact Information -->
-    <div class="contact-info" id="contactInfo">
-      <h3>Our Contact</h3>
-      <p>457 Morningview Lane, NY</p>
-      <p>+1 234 567 890</p>
-      <p>anymail@mail.com</p>
-      <p>Sun - Fri, 9am - 5pm</p>
-      <div class="social-icons">
-        <i class="fab fa-facebook-f"></i>
-        <i class="fab fa-twitter"></i>
-        <i class="fab fa-linkedin-in"></i>
-        <i class="fab fa-instagram"></i>
-      </div>
-    </div>
-  
-    <!-- mobileMenu -->
-    <ul class="nav-links" id="mobileMenu">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="index_about.html">About</a></li>
-      <li><a href="index_menu.html">Menu</a></li>
-      <li class="dropdown">
-        <a href="#">Pages <i class="fas fa-caret-down"></i></a>
-        <ul class="dropdown-menu">
-          <li><a href="index_kitchen.html">Kitchen</a></li>
-          <li><a href="index_review.html">Reviews</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="index_team.html">Team</a></li>
-          <li><a href="index_faqs.html">FAQs</a></li>
-          <li><a href="index_blog.html">Blog</a></li>
-          <li><a href="#">Single Post</a></li>
-          <li><a href="#">404 Page</a></li>
-        </ul>
-      </li>
-      <li><a href="#">Contact</a></li>
-    </ul></div>
-    <div class="header-bottom">
-      <div class="contact-block" id="contactBlock">
-        <i class="fas fa-times close-btn" id="closeContact"></i>
-        <h3>DELIBAKE</h3>
-        <p>BAKERY AND PASTRY</p>
-        <h4>Our Contact</h4>
-        <address>
-          457 Morningview Lane, NY<br>
-          example@mail.com<br>
-          +1 234 567 890
-        </address>
-        <p>Mon - Fri: 9am - 5pm</p>
-        <div class="social-links">
-          <a href="#">Fb</a>
-          <a href="#">Tw</a>
-          <a href="#">Ln</a>
-          <a href="#">Ig</a>
-        </div>
-        </div>
-    </div>
+    <?php   
+      include 'include/header.php';
+    ?> 
 
 </header>
 
@@ -342,69 +245,11 @@
 </main>  
 
 <footer id="footer">
-    <!-- <?php   
-        include 'include/footer.html';
-    ?> -->
-      <div class="footer-container">
-        <div class="footer-column footer-brand">
-          <div class="footer-logo">
-            <div>DELIBAKE</div>
-            <div class="logo-subtitle">Bakery and Pastry</div>
-          </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
-          <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-          </div>
-        </div>
-    
-        <div class="footer-column footer-contact" id="footerContact">
-          <h3>Get In Touch</h3>
-          <ul>
-            <li><i class="fas fa-map-marker-alt"></i> 457 Morningview Lane, NY</li>
-            <li><i class="fas fa-envelope"></i> example@mail.com</li>
-            <li><i class="fas fa-phone"></i> +1 (234) 567 890</li>
-            <li><i class="fas fa-clock"></i> Mon - Fri: 09.00 - 16.00</li>
-          </ul>
-        </div>
-    
-        <div class="footer-column footer-about">
-          <h3>About Us</h3>
-          <ul>
-            <li><a href="index_about.html">Our Story</a></li>
-            <li><a href="https://maps.app.goo.gl/w8YqvHBv6zvviAEX8" target="_blank" rel="noopener noreferrer">Visit Us</a></li>
-            <li><a href="index_faqs.html">FAQs Page</a></li>
-            <li><a href="index_blog.html">Blog Post</a></li>
-            <li><a href="#footerContact">Contact</a></li>
-          </ul>
-        </div>
-    
-        <div class="footer-column footer-news">
-          <h3>Latest News</h3>
-          <ul>
-            <li>
-              <span class="news-date">26 MAY 2022</span>
-              <a href="#">Sugar reduction is key for a healthy future</a>
-            </li>
-            <li>
-              <span class="news-date">26 MAY 2022</span>
-              <a href="#">Trends food and beverage industry today</a>
-            </li>
-            <li>
-              <span class="news-date">26 MAY 2022</span>
-              <a href="#">Going banana (bread) over bread baking</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    
-      <div class="footer-bottom">
-        <p>Copyright © 2022 ASK.Project</p>
-      </div>
+     <?php   
+        include 'include/footer.php';
+    ?> 
+     
 </footer>
    
 
 </body>
-</html>

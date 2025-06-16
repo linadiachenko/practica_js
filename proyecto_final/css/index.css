@@ -13,6 +13,8 @@
   --dark-text: #2c3e50;
   --shadow-light: rgba(0, 0, 0, 0.1);
   --shadow-medium: rgba(0, 0, 0, 0.2);
+  --border-color: #e0e0e0;
+  --header-bg: #fff;
 }
 
 body {
@@ -29,7 +31,7 @@ body {
 
 header {
   width: 100%;
-  background: #fff;
+  background: var(--header-bg);
   padding: 20px;
   display: flex;
   justify-content: center;
@@ -1588,7 +1590,7 @@ footer {
     align-items: center;
     padding: 5px;
     box-shadow: none;
-    background-color: var(--light-gray);
+    background-color: var(--header-bg);
     padding-top: 40px;
   }
 
@@ -2070,9 +2072,7 @@ footer {
   /* Adjust gap between stacked items */
 }
 
-.promo-item {
-  /* No specific changes here, existing flex-direction: column is good */
-}
+
 
 .promo-image-bg {
   height: 200px;
@@ -2100,9 +2100,7 @@ footer {
 }
 
 /* Specific styles for the "small" promo item */
-.small-promo {
-  /* flex-direction: column; and align-items: center are already set for medium screens, good for small too */
-}
+
 
 .small-promo .promo-image-bg {
   width: 100%;

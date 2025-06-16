@@ -79,19 +79,18 @@ header {
   font-weight: bold;
 }
 
-/* --- Meal Types Section Styling (Breakfast, Lunch, Dinner - as provided) --- */
+/* --- Meal Types Section Styling (Breakfast, Lunch, Dinner) --- */
 .meal-types-section {
   max-width: 1200px;
   margin: 80px auto;
   padding: 0 20px;
   text-align: center;
 }
-.menu-list-container {
-  gap: 100px;}
 
 .meal-types-section .container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  /* Desktop: 3 columns */
   gap: 20px;
   justify-content: center;
 }
@@ -140,6 +139,24 @@ header {
   line-height: 1.5;
   padding: 0 20px;
   margin-bottom: 20px;
+}
+
+.meal-types-section .order-now-button {
+  padding: 10px 20px;
+  border: 1px solid var(--primary-color);
+  background-color: transparent;
+  color: var(--primary-color);
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.meal-types-section .order-now-button:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+  border-color: var(--primary-color);
 }
 
 /* --- Specific Styles for the "Menu Gallery and List" Section (mostly desktop) --- */
@@ -250,127 +267,329 @@ header {
   color: var(--dark-primary-color);
 }
 
-.meal-types-section .order-now-button {
-  padding: 10px 20px;
-  border: 1px solid var(--primary-color);
-  background-color: transparent;
-  color: var(--primary-color);
-  font-size: 0.9rem;
-  font-weight: bold;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+
+/* --- Responsive Design for Meal Types Section --- */
+@media (max-width: 992px) {
+
+  /* Tablets and smaller desktops */
+  .meal-types-section .container {
+    grid-template-columns: repeat(2, 1fr);
+    /* Show 2 columns */
+    gap: 25px;
+  }
 }
 
-.meal-types-section .order-now-button:hover {
-  background-color: var(--primary-color);
-  color: #fff;
-  border-color: var(--primary-color);
-}
-
-/* --- Responsive Design for "Menu Gallery and List" Section --- */
 @media (max-width: 768px) {
-  .menu-content-wrapper {
-    flex-direction: column;
-    /* Stack image and menu list vertically */
-    gap: 30px;
-    /* Adjust gap when stacked */
-    padding: 20px;
-    /* Reduce internal padding */
+
+  /* Medium tablets */
+  .meal-types-section .container {
+    grid-template-columns: repeat(2, 1fr);
+    /* Remain 2 columns */
+    gap: 20px;
   }
 
-  .bread-gallery,
-  .menu-items-list {
-    min-width: unset;
-    /* Remove min-width to allow full width */
-    max-width: 100%;
-    /* Take full available width */
-  }
-
-  .bread-gallery img {
-    height: 250px;
-    /* Fixed height for image on medium screens */
-    object-fit: cover;
+  .meal-image-wrapper {
+    height: 180px;
   }
 }
 
 @media (max-width: 430px) {
-  .menu-gallery-and-list-section {
+
+  /* --- Meal Types Section specific adjustments for 430px --- */
+  .meal-types-section {
     margin: 40px auto;
-    /* Adjust overall section margin for mobile */
+    /* Adjust margin for smaller screens */
     padding: 0 15px;
     /* Adjust horizontal padding for section */
+  }
+
+  .meal-types-section .container {
+    grid-template-columns: 1fr;
+    /* Crucial: Stack cards vertically on mobile */
+    gap: 20px;
+    /* Adjust gap between stacked cards */
+  }
+
+  .meal-card {
+    width: auto;
+    /* Allow card to naturally fill its grid column */
+    height: auto;
+    /* Remove explicit height if not needed */
+    border-radius: 4px;
+    /* Smaller border-radius for mobile */
+  }
+
+  .meal-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .meal-card p {
+    font-size: 0.9rem;
+    padding: 0 15px;
+  }
+
+  .meal-image-wrapper {
+    height: 160px;
+    /* Even smaller image height for mobile */
+  }
+
+  /* --- Menu Gallery and List Section (re-confirming mobile stacking) --- */
+  .menu-gallery-and-list-section {
+    margin: 40px auto;
+    padding: 0 15px;
     box-shadow: none;
-    /* Remove subtle shadow on very small screens for cleaner look */
     border-radius: 0;
-    /* Remove border-radius */
   }
 
   .menu-content-wrapper {
     flex-direction: column;
-    /* Ensure stacking on very small screens too */
     padding: 0;
-    /* Remove internal padding on wrapper, let section padding handle it */
     gap: 20px;
-    /* Reduce gap between stacked elements */
   }
 
   .bread-gallery {
     border-radius: 4px;
-    /* Slightly smaller border-radius for image */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-    /* Lighter shadow */
     min-width: unset;
-    /* Ensure it can shrink */
     max-width: 100%;
-    /* Take full width */
   }
 
   .bread-gallery img {
     height: 200px;
-    /* Smaller fixed height for image on mobile */
   }
 
   .bread-gallery:hover img {
     transform: scale(1.05);
-    /* Keep a slightly smaller zoom for mobile */
     filter: brightness(1) saturate(1);
-    /* Less aggressive filter change for mobile */
   }
 
   .bread-gallery::before {
     content: 'TAP TO VIEW';
-    /* Change overlay text for mobile */
     font-size: 1.2em;
   }
 
   .menu-items-list {
     min-width: unset;
-    /* Ensure it can shrink */
     max-width: 100%;
-    /* Take full width */
     gap: 15px;
-    /* Smaller gap between menu items */
   }
 
   .menu-item-short {
     padding: 8px 0;
-    /* Smaller padding for menu items */
   }
 
   .item-details-short h3 {
     font-size: 1em;
-    /* Smaller font for item title */
   }
 
   .item-details-short p {
     font-size: 0.8em;
-    /* Smaller font for item description */
   }
 
   .item-price-short {
     font-size: 1.05rem;
-    /* Slightly smaller price font */
     margin-left: 10px;
+  }
+
+  /* --- General Adjustments for very small screens (other sections) --- */
+  .container {
+    padding: 0 15px;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .section-tag-small {
+    margin-bottom: 10px;
+  }
+
+  .discover-more-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  /* --- Header & Navigation --- */
+  /* (Assuming these styles are elsewhere or not critical for this context) */
+  /* .main-nav { padding: 15px; } */
+  /* .main-nav .logo { font-size: 1.5rem; } */
+
+  /* --- Our Story Section --- */
+  .our-story-section .container,
+  .about-delibake-section .container {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .our-story-content,
+  .our-story-text,
+  .about-delibake-image,
+  .about-delibake-content {
+    max-width: 100%;
+    min-width: unset;
+    text-align: center;
+    padding-right: 0;
+  }
+
+  .our-story-images {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .our-story-images img {
+    height: 200px;
+  }
+
+  /* --- About Delibake Section --- */
+  .about-delibake-image {
+    height: 250px;
+  }
+
+  .about-delibake-content #quote {
+    padding-left: 0;
+    border-left: none;
+    text-align: center;
+  }
+
+  .about-delibake-content #quote::before {
+    left: 50%;
+    transform: translateX(-50%);
+    content: '';
+  }
+
+  /* --- Footer --- */
+  /* (Assuming footer styles are elsewhere or not critical for this context) */
+  /* .footer-container { grid-template-columns: 1fr; gap: 20px; } */
+
+  /* --- FAQ Section --- */
+  .faqs-section {
+    margin: 40px auto;
+    padding: 40px 0;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .faqs-section .container {
+    flex-direction: column;
+    padding: 0 15px;
+    gap: 30px;
+  }
+
+  .faqs-content {
+    padding-right: 0;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .faqs-content .section-tag,
+  .faqs-content h1 {
+    text-align: center;
+  }
+
+  .faqs-content h1 {
+    font-size: 2em;
+  }
+
+  .faqs-image {
+    order: -1;
+    margin-bottom: 20px;
+  }
+
+  .faqs-image img {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .faq-question {
+    padding: 15px 20px;
+  }
+
+  .faq-question h3 {
+    font-size: 1em;
+  }
+
+  .faq-answer {
+    padding: 0 20px;
+  }
+
+  .faq-item.active .faq-answer {
+    padding-bottom: 15px;
+  }
+
+  /* --- Why Choose Us Section --- */
+  .why-choose-us-section {
+    margin: 30px auto;
+    padding: 0 15px;
+  }
+
+  .why-choose-us-section h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+  }
+
+  .reason-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .reason-item {
+    padding: 25px;
+  }
+
+  .reason-item i {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+
+  .reason-item h3 {
+    font-size: 1.2rem;
+  }
+
+  .reason-item p {
+    font-size: 0.9rem;
+  }
+
+  /* --- Team Section --- */
+  .team-section {
+    margin: 40px auto;
+    width: 100%;
+    padding: 0 15px;
+  }
+
+  .team-section h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+  }
+
+  .team-members {
+    grid-template-columns: 1fr;
+    margin: 0px auto 50px auto;
+    padding: 0;
+    gap: 20px;
+  }
+
+  .member-card {
+    padding-bottom: 20px;
+  }
+
+  .member-image {
+    height: 200px;
+  }
+
+  .member-card h3 {
+    font-size: 1.2em;
+  }
+
+  .member-role {
+    font-size: 0.8em;
+  }
+
+  .social-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9em;
   }
 }
