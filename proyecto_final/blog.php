@@ -91,8 +91,8 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar
           dapibus.</p>
         <div class="subscribe-form">
-          <input type="email" placeholder="Email">
-          <button class="subscribe-button">SUBSCRIBE</button>
+        <input type="email" id="email" name="email" placeholder="Email" required>
+        <button class="subscribe-button">SUBSCRIBE</button>
         </div>
       </div>
     </section>

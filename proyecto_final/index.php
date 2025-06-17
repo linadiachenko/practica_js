@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,21 +13,20 @@
   <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
 
   <link rel="stylesheet" href="css/index.css">
-  <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
   <script src="js/index.js" defer></script>
 </head>
+
 <body>
   <header id="header">
-    <?php   
-            include 'include/header.php';
-    ?> 
-      
+    <?php
+    include 'include/header.php';
+    ?>
+
   </header>
- 
-   <main>
+
+  <main>
     <section class="hero">
       <div class="hero-content">
         <h4>BAKERY AND PASTRY</h4>
@@ -45,7 +45,7 @@
       <div class="hero-image">
         <div class="hero-image-overlay"></div>
         <div class="since-info">
-         <sup>*</sup> Been baking since 1992
+          <sup>*</sup> Been baking since 1992
         </div>
       </div>
     </section>
@@ -73,7 +73,7 @@
         <span class="dot"></span>
       </div>
     </section>
-    
+
     <section class="about-us-section" id="about">
       <div class="about-image">
         <div class="img-container"></div>
@@ -88,7 +88,7 @@
         <button class="discover-more">DISCOVER MORE</button>
       </div>
     </section>
-    
+
     <section class="features-section">
       <div class="feature-item">
         <i class="fas fa-seedling"></i>
@@ -115,7 +115,7 @@
     <section class="menu-section" id="menu">
       <h4 class="section-tag-small">OUR MENU</h4>
       <h2 class="section-title">Feel the Butter, All Time</h2>
-    
+
       <div class="menu-list-container">
         <div class="menu-column">
           <div class="menu-item">
@@ -147,7 +147,7 @@
             <span class="item-price">$8</span>
           </div>
         </div>
-    
+
         <div class="menu-column">
           <div class="menu-item">
             <div class="item-details">
@@ -179,16 +179,24 @@
           </div>
         </div>
       </div>
-    
+
       <div class="menu-gallery">
-      <article><div class="margin-top"></div>
-      <div class="img-gallery"></div></article>
-      <article><div class="img-gallery"></div>
-      <div class="margin-bottom"></div></article>
-      <article><div class="margin-top"></div>
-      <div class="img-gallery"></div></article>
-      <article><div class="img-gallery"></div>
-      <div class="margin-bottom"></div></article>
+        <article>
+          <div class="margin-top"></div>
+          <div class="img-gallery"></div>
+        </article>
+        <article>
+          <div class="img-gallery"></div>
+          <div class="margin-bottom"></div>
+        </article>
+        <article>
+          <div class="margin-top"></div>
+          <div class="img-gallery"></div>
+        </article>
+        <article>
+          <div class="img-gallery"></div>
+          <div class="margin-bottom"></div>
+        </article>
       </div>
     </section>
 
@@ -200,7 +208,7 @@
           aptent taciti sociosqu ad litora torquent per.</p>
         <button class="read-more-button">READ MORE</button>
       </div>
-    
+
       <div class="offerings-grid">
         <div class="offering-item">
           <div class="offering-icon"><i class="fas fa-birthday-cake"></i></div>
@@ -228,11 +236,11 @@
         </div>
       </div>
     </section>
-    
+
     <section class="how-we-work-section">
       <h4 class="section-tag-small">HOW WE WORK</h4>
       <h2 class="section-title">Making Sweet Things Happen</h2>
-    
+
       <div class="work-process-grid">
         <article>
           <div class="margin-top"></div>
@@ -240,7 +248,7 @@
             <div class="representative-img"></div>
             <h3>Fresh Ingredients</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus.</p>
-            </div>
+          </div>
         </article>
 
         <article>
@@ -271,8 +279,8 @@
     </section>
 
     <section class="video-hero">
-      <video id="heroVideo" autoplay loop muted playsinline poster="img/img_1.jpg">
-        <img src="img/img_1.jpg" alt="Golden brown loaf of bread on a rustic wooden table, surrounded by wheat stalks and a linen cloth, evoking a warm and inviting bakery atmosphere. The mood is cozy and welcoming. Text on the image: DELIBAKE." class="video-poster" id="videoPoster">
+      <video id="heroVideo" autoplay loop muted playsinline poster="img/img_1.webp">
+        <img src="img/img_1.webp" alt="Golden brown loaf of bread on a rustic wooden table, surrounded by wheat stalks and a linen cloth, evoking a warm and inviting bakery atmosphere. The mood is cozy and welcoming. Text on the image: DELIBAKE." class="video-poster" id="videoPoster">
         <source src="img/video_1.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
@@ -295,7 +303,7 @@
           <button class="read-more-button">READ MORE</button>
         </div>
       </div>
-    
+
       <div class="promo-item small-promo">
         <div class="promo-content">
           <h2>Our 10 special types of bread that you must try this month</h2>
@@ -305,8 +313,8 @@
         </div>
         <div class="promo-image-bg" style="background-image: url('img/img_blog_2.webp');"></div>
       </div>
-    </section> 
-    
+    </section>
+
     <section class="stats-section">
       <div class="stat-item">
         <h3>25+</h3>
@@ -332,27 +340,28 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar
           dapibus.</p>
         <div class="subscribe-form">
-          <input type="email" placeholder="Email">
+          <input type="email" id="email" name="email" placeholder="Email" required>
           <button class="subscribe-button">SUBSCRIBE</button>
         </div>
       </div>
     </section>
-  
 
-     
- 
-  </main>  
 
-   <footer id="footer">
-    <?php   
-        include 'include/footer.html';
-    ?> 
-      
-    </footer>
-   
-  
 
- 
+
+  </main>
+
+  <footer id="footer">
+    <?php
+    include 'include/footer.php';
+    ?>
+
+  </footer>
+
+
+
+
 
 </body>
+
 </html>
