@@ -32,7 +32,7 @@
     <section class="about-hero-title">
       <h1>OUR MENU</h1>
       <div class="breadcrumb">
-        <a href="index.html">HOME</a> <i class="fas fa-angle-right"></i> <span>MENU</span>
+        <a href="index.php">HOME</a> <i class="fas fa-angle-right"></i> <span>MENU</span>
       </div>
     </section>
 

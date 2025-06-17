@@ -1,32 +1,307 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Musium</title>
+/* --- Testimonials Section (from Знімок екрана 2025-06-17 о 12.09.26.jpg) --- */
+.testimonials-section {
+  background-color: var(--header-bg);
+  /* Fondo blanco según la imagen */
+  padding: 80px 0;
+  text-align: center;
+}
 
-  <link rel="stylesheet" href="css/estilos_practica_8R.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+.testimonials-section .section-tag-small {
+  font-size: 0.85rem;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
 
-</head>
-<body>
-    <header>
-        <?php   
-            include 'include/header.html';
-        ?>
-      </header>
-  
- 
-  <main>
-    
- 
-  </main> 
+.testimonials-section h2 {
+  font-size: 2.5rem;
+  color: var(--dark-text);
+  margin-bottom: 40px;
+  line-height: 1.2;
+}
 
-  <footer>
-    <?php   
-        include 'include/footer.html';
-    ?>
-</footer>
+.testimonials-grid {
+  display: grid;
+  /* Adapta el número de columnas: 2 para pantallas medianas, 1 para pequeñas */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  /* Espacio entre las tarjetas */
+  max-width: 1200px;
+  /* Ancho máximo de la cuadrícula */
+  margin: 0 auto;
+  /* Centra la cuadrícula */
+  padding: 0 20px;
+  /* Padding lateral para pantallas más pequeñas */
+}
 
-</body>
-</html>
+.testimonial-card {
+  background-color: var(--header-bg);
+  /* Fondo de la tarjeta, blanco */
+  padding: 30px;
+  text-align: left;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  /* Sombra sutil */
+  position: relative;
+  /* Necesario para posicionar el icono de cita */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  /* Pequeño levantamiento al pasar el ratón */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  /* Sombra ligeramente más fuerte */
+}
+
+.testimonial-card .quote-icon {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  font-size: 3rem;
+  z-index: 1;
+}
+
+.testimonial-card .quote-icon .fas {
+  font-weight: 900; 
+  display: block;
+  color: var(--primary-color);
+}
+
+.testimonial-card p {
+  font-size: 1rem;
+  color: var(--light-text);
+  line-height: 1.6;
+  margin-top: 50px;
+  /* Incrementa el margin-top para dar más espacio al ícono grande */
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-card p {
+  font-size: 1rem;
+  color: var(--light-text);
+  line-height: 1.6;
+  margin-top: 30px;
+  /* Deja espacio para el icono de la cita */
+  margin-bottom: 20px;
+  position: relative;
+  /* Para que el texto quede sobre el icono */
+  z-index: 2;
+  /* Asegura que el texto esté sobre el icono de cita */
+}
+
+.testimonial-card .client-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  /* Espacio entre la imagen y el texto del cliente */
+  margin-top: 20px;
+}
+
+.testimonial-card .client-info img {
+  width: 60px;
+  /* Tamaño de la imagen de perfil */
+  height: 60px;
+  border-radius: 50%;
+  /* Hace la imagen circular */
+  object-fit: cover;
+  /* Asegura que la imagen se ajuste y cubra el círculo */
+  border: 3px solid var(--primary-color);
+  /* Borde alrededor de la imagen de perfil */
+}
+
+.testimonial-card .client-info h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--dark-text);
+}
+
+.testimonial-card .client-info span {
+  font-size: 0.9rem;
+  color: var(--light-text);
+  display: block;
+  /* Para que "Customer" esté en una nueva línea */
+}
+
+/* --- Review Form Section (from Знімок екрана 2025-06-17 о 12.09.36.png) --- */
+.review-form-section {
+  width: 1200px;
+  /* Fondo claro según la imagen */
+  padding: 80px 0;
+  text-align: center;
+}
+
+.review-form-section .section-tag-small {
+  font-size: 0.85rem;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.review-form-section h2 {
+  font-size: 2.5rem;
+  color: var(--dark-text);
+  margin-bottom: 40px;
+  line-height: 1.2;
+}
+
+.review-form {
+  max-width: 700px;
+  /* Ancho máximo del formulario */
+  margin: 0 auto;
+  /* Centra el formulario */
+  padding: 20px;
+  /* Fondo blanco para el formulario */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  /* Sombra sutil */
+}
+
+.review-form .form-row {
+  display: flex;
+  gap: 20px;
+  /* Espacio entre campos en una fila */
+  margin-bottom: 20px;
+  /* Espacio entre filas */
+}
+
+.review-form input[type="text"],
+.review-form input[type="email"],
+.review-form textarea {
+  flex: 1;
+  /* Para que ocupen el espacio disponible */
+  padding: 15px;
+  border: 1px solid var(--border-color);
+  font-size: 1rem;
+  color: var(--dark-text);
+  outline: none;
+  /* Elimina el contorno azul al enfocar */
+  transition: border-color 0.3s ease;
+}
+
+.review-form input[type="text"]:focus,
+.review-form input[type="email"]:focus,
+.review-form textarea:focus {
+  border-color: var(--primary-color);
+  /* Borde de color primario al enfocar */
+}
+
+.review-form textarea {
+  resize: vertical;
+  /* Permite redimensionar solo verticalmente */
+}
+
+.send-message-button {
+  background-color: var(--primary-color);
+  border: none;
+  color: var(--header-bg);
+  padding: 15px 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease-in-out;
+}
+
+.send-message-button:hover {
+  background-color: var(--dark-primary-color);
+  /* Color más oscuro al pasar el ratón */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  /* Sombra más fuerte al pasar el ratón */
+  transform: translateY(-2px);
+}
+
+
+
+
+@media (max-width: 430px) {
+  .testimonials-section {
+    padding: 50px 10px;
+    text-align: center;
+  }
+
+  .testimonials-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 10px;
+  }
+
+  .testimonial-card {
+    padding: 20px;
+  }
+
+  .testimonial-card .quote-icon {
+    font-size: 2rem;
+    top: 10px;
+    left: 10px;
+  }
+
+  .testimonial-card p {
+    font-size: 0.95rem;
+    margin-top: 40px;
+    margin-bottom: 15px;
+  }
+
+  .testimonial-card .client-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .testimonial-card .client-info img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .testimonial-card .client-info h4 {
+    font-size: 1rem;
+  }
+
+  .testimonial-card .client-info span {
+    font-size: 0.85rem;
+  }
+
+  .review-form-section {
+    width: 100%;
+    padding: 50px 10px;
+  }
+
+  .review-form-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+
+  .review-form {
+    padding: 15px;
+    box-shadow: none;
+  }
+
+  .review-form .form-row {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .review-form input[type="text"],
+  .review-form input[type="email"],
+  .review-form textarea {
+    font-size: 0.95rem;
+    padding: 12px;
+  }
+
+  .send-message-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+}

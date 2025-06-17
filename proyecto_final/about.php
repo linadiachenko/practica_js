@@ -34,7 +34,7 @@
   <section class="about-hero-title">
     <h1>About Us</h1>
     <div class="breadcrumb">
-      <a href="index.html">HOME</a> <i class="fas fa-angle-right"></i> <span>ABOUT</span>
+      <a href="index.php">HOME</a> <i class="fas fa-angle-right"></i> <span>ABOUT</span>
     </div>
   </section>
   
