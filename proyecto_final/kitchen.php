@@ -36,7 +36,7 @@
     <section class="about-hero-title">
       <h1>Our Kitchen</h1>
       <div class="breadcrumb">
-        <a href="index.php">HOME</a> <i class="fas fa-angle-right"></i> <span>Kitchen</span>
+        <a href="index.php">HOME</a> <i class="fas fa-angle-right"></i> <span>KITCHEN</span>
       </div>
     </section>
 

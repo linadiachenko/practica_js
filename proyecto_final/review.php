@@ -36,7 +36,7 @@
     <section class="about-hero-title">
       <h1>Client Reviews</h1>
       <div class="breadcrumb">
-        <a href="index.php">HOME</a> <i class="fas fa-angle-right"></i> <span>Reviews</span>
+        <a href="index.php">HOME</a> <i class="fas fa-angle-right"></i> <span>REVIEWS</span>
       </div>
     </section>
 
