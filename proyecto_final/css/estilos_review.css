@@ -1,4 +1,4 @@
-/* --- Testimonials Section (from Знімок екрана 2025-06-17 о 12.09.26.jpg) --- */
+/* --- Testimonials Section  --- */
 .testimonials-section {
   background-color: var(--header-bg);
   /* Fondo blanco según la imagen */
@@ -126,7 +126,7 @@
   /* Para que "Customer" esté en una nueva línea */
 }
 
-/* --- Review Form Section (from Знімок екрана 2025-06-17 о 12.09.36.png) --- */
+/* --- Review Form Section  */
 .review-form-section {
   width: 1200px;
   /* Fondo claro según la imagen */
@@ -156,9 +156,7 @@
   margin: 0 auto;
   /* Centra el formulario */
   padding: 20px;
-  /* Fondo blanco para el formulario */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  /* Sombra sutil */
+  
 }
 
 .review-form .form-row {

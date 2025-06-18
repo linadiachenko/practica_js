@@ -20,7 +20,7 @@
                 <li><a href="#">404 Page</a></li>
             </ul>
         </li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="contact.php">Contact</a></li>
     </ul>
     <div class="search-and-hamburger">
         <div class="search-container">
@@ -73,6 +73,6 @@
                 <li><a href="#">404 Page</a></li>
             </ul>
         </li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="contact.php">Contact</a></li>
     </ul>
 </div>

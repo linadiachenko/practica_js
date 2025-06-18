@@ -17,17 +17,11 @@ main {
     padding: 30px 20px;
     text-align: center;
     margin-bottom: 60px;
-
     position: sticky;
-    /* Закріплює елемент */
     top: 0;
-    /* Закріплює його у верхній частині вікна перегляду */
     z-index: 1;
-    /* Переконайтеся, що він знаходиться над іншими елементами при прокручуванні */
     width: 100%;
-    /* Гарантує, що він займає всю ширину */
     box-shadow: 0 8px 10px -6px rgba(0, 0, 0, 0.08);
-    /* Тінь тільки знизу */
 }
 
 .about-hero-title h1 {
@@ -147,7 +141,7 @@ main {
 }
 
 
-/* --- OUR KITCHEN Section (from Знімок екрана 2025-06-17 о 09.33.43.jpg) --- */
+/* --- OUR KITCHEN Section  */
 .our-kitchen-section {
     background-color: var(--background-light);
     /* Usando la variable */
@@ -337,7 +331,7 @@ main {
     cursor: pointer;
 }
 
-/* --- Bakery Gallery Section (from Знімок екрана 2025-06-17 о 09.34.04.jpg) --- */
+/* --- Bakery Gallery Section */
 .bakery-gallery-section {
     padding: 80px 0;
     text-align: center;

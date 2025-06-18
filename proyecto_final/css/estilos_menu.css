@@ -14,7 +14,7 @@
   --header-bg: #fff;
 }
 
-/* --- General & Reused Styles (as provided) --- */
+/* --- General & Reused Styles --- */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -34,7 +34,7 @@ header {
   box-shadow: none;
 }
 
-/* --- About Hero Title Section (as provided) --- */
+/* --- About Hero Title Section  --- */
 .about-hero-title {
   width: 100%;
   background-color: var(--header-bg);
@@ -159,7 +159,7 @@ header {
   border-color: var(--primary-color);
 }
 
-/* --- Specific Styles for the "Menu Gallery and List" Section (mostly desktop) --- */
+/* --- Specific Styles for the "Menu Gallery and List" Section  --- */
 .menu-gallery-and-list-section {
   max-width: 1200px;
   margin: 80px auto;

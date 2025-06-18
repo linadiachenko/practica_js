@@ -1,4 +1,3 @@
-/* --- Variables (If you have them globally, ensure they are also available or define them here) --- */
 :root {
   --primary-color: #e7720c;
   /* Example orange/brown for primary actions */
@@ -77,15 +76,10 @@ header {
   margin-bottom: 40px;
   
   position: sticky;
-  /* Закріплює елемент */
   top: 0;
-  /* Закріплює його у верхній частині вікна перегляду */
   z-index: 5;
-  /* Переконайтеся, що він знаходиться над іншими елементами при прокручуванні */
   width: 100%;
-  /* Гарантує, що він займає всю ширину */
   box-shadow: 0 8px 10px -6px rgba(0, 0, 0, 0.08);
-  /* Тінь тільки знизу */
 }
 
 .about-hero-title h1 {

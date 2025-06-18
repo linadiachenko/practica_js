@@ -31,7 +31,7 @@
                     Us</a></li>
             <li><a href="faqs.php">FAQs Page</a></li>
             <li><a href="blog.php">Blog Post</a></li>
-            <li><a href="#footerContact">Contact</a></li>
+            <li><a href="contact.php">Contact</a></li>
         </ul>
     </div>
 
