@@ -1,32 +1,182 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Musium</title>
+/* --- FAQs Section --- */
+.faqs-section {
+  background-color: var(--background-light);
+  /* Fondo claro según la imagen */
+  padding: 0px 0;
+  text-align: center;
+  /* Para los títulos de sección principales */
+}
 
-  <link rel="stylesheet" href="css/estilos_practica_8R.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+.faqs-section .container {
+  display: grid;
+  grid-template-columns: (1fr);
+  /* Una columna en móvil, dos o tres en desktop */
+  gap: 50px 30px;
+  /* Espacio vertical y horizontal entre categorías */
+  width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: left;
+  /* Alinea el contenido de las categorías a la izquierda */
+}
 
-</head>
-<body>
-    <header>
-        <?php   
-            include 'include/header.html';
-        ?>
-      </header>
-  
- 
-  <main>
-    
- 
-  </main> 
+.faq-category {
+  padding: 20px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  /* Padding interno para cada columna de categoría */
+}
 
-  <footer>
-    <?php   
-        include 'include/footer.html';
-    ?>
-</footer>
+.faq-category .section-tag-small {
+  text-align: left;
+  /* Etiqueta pequeña alineada a la izquierda dentro de la categoría */
+  margin-bottom: 5px;
+  /* Menos margen inferior para estar cerca del h2 */
+}
 
-</body>
-</html>
+.faq-category h2 {
+  font-size: 2rem;
+  color: var(--dark-text);
+  margin-top: 0;
+  margin-bottom: 15px;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.faq-category .category-description {
+  font-size: 0.95rem;
+  color: var(--light-text);
+  line-height: 1.6;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.accordion-container {
+  width: 100%;
+}
+
+.accordion-item {
+  margin-bottom: 10px;
+  /* Espacio entre los ítems del acordeón */
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  /* Importante para la transición de altura */
+}
+
+.accordion-header {
+  width: 100%;
+  background-color: var(--header-bg);
+  /* Fondo blanco del encabezado */
+  color: var(--dark-text);
+  padding: 15px 20px;
+  border: none;
+  text-align: left;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.accordion-header:hover {
+  background-color: var(--background-light);
+  /* Ligeramente más oscuro al pasar el ratón */
+}
+
+.accordion-header .arrow-icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease-in-out;
+  color: var(--primary-color);
+}
+
+.accordion-header.active .arrow-icon {
+  transform: rotate(180deg);
+  /* Gira la flecha cuando está activo */
+}
+
+.accordion-content {
+  max-height: 0;
+  /* Inicialmente oculto */
+  overflow: hidden;
+  padding-left: 20px;
+  padding-right: 20px;
+  transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+  /* Transición para la animación */
+}
+
+.accordion-content.show {
+  max-height: 200px;
+  /* Altura máxima para mostrar el contenido. Ajustar si el contenido es muy largo */
+  padding: 15px 20px;
+}
+
+.accordion-content p {
+  margin: 0;
+  /* Elimina los márgenes predeterminados del párrafo dentro del acordeón */
+  font-size: 0.95rem;
+  color: var(--light-text);
+  line-height: 1.6;
+}
+
+/* Media Queries para la sección de FAQs */
+@media (max-width: 430px) {
+  .faqs-section {
+    padding: 40px 15px;
+    text-align: center;
+  }
+
+  .faqs-section .container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    width: 100%;
+    padding: 0 10px;
+    text-align: left;
+  }
+
+  .faq-category {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 0;
+  }
+
+  .faq-category .section-tag-small {
+    margin-bottom: 5px;
+    font-size: 0.8rem;
+    text-align: left;
+  }
+
+  .faq-category h2 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+  }
+
+  .faq-category .category-description {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+
+  .accordion-header {
+    padding: 12px 16px;
+    font-size: 1rem;
+  }
+
+  .accordion-header .arrow-icon {
+    font-size: 1rem;
+  }
+
+  .accordion-content {
+    padding: 0 16px;
+  }
+
+  .accordion-content.show {
+    padding: 12px 16px;
+  }
+
+  .accordion-content p {
+    font-size: 0.9rem;
+  }
+}
